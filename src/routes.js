@@ -1,7 +1,9 @@
 const {
   addBookHandler,
-  getBookHandler,
   getBookByIdHandler,
+  updateBookWithIdHandler,
+  deleteBookHandler,
+  getAllBookByQueryParams,
 } = require("./controller/bukuController");
 const routes = [
   {
@@ -12,12 +14,22 @@ const routes = [
   {
     method: "GET",
     path: "/books",
-    handler: getBookHandler,
+    handler: getAllBookByQueryParams,
   },
   {
     method: "GET",
     path: "/books/{bookId}",
     handler: getBookByIdHandler,
+  },
+  {
+    method: "PUT",
+    path: "/books/{bookId}",
+    handler: updateBookWithIdHandler,
+  },
+  {
+    method: "DELETE",
+    path: "/books/{bookId}",
+    handler: deleteBookHandler,
   },
 ];
 
